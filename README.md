@@ -38,3 +38,7 @@ BeatSaver results are cached for 3 days in `cache/`. Hidden songs are stored in 
 - [ ] Artist view: every map from your favorite artists, not only rated tracks
 - [ ] Filter maps by difficulty, duration or BPM
 - [ ] Mark maps as installed right after clicking "Install" (without a rescan)
+
+## License
+
+[MIT](LICENSE)

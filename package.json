@@ -4,6 +4,8 @@
   "description": "Suggère des maps BeatSaver à partir des favoris et écoutes Plexamp, en ignorant les sons déjà installés dans BSManager",
   "type": "module",
   "main": "server.js",
+  "license": "MIT",
+  "author": "hommesoupe",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
