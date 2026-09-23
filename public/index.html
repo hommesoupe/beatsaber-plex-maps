@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beat Saber × Plex</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="saber red"></span><span class="saber blue"></span>
+      <h1>Beat Saber <span>×</span> Plex</h1>
+    </div>
+
+    <nav class="tabs" id="source">
+      <button data-source="favorites" class="active">Favoris</button>
+      <button data-source="played">Plus écoutés</button>
+      <button data-source="recent">Récemment écoutés</button>
+    </nav>
+
+    <div class="controls">
+      <label>Sons
+        <select id="limit">
+          <option>50</option><option selected>100</option><option>200</option><option>500</option>
+        </select>
+      </label>
+      <label>Ordre des sons
+        <select id="trackSort">
+          <option value="plex">Ordre Plex</option>
+          <option value="best">Meilleure map d'abord</option>
+        </select>
+      </label>
+      <label>Ordre des maps
+        <select id="mapSort">
+          <option value="upvotes">Plus likées</option>
+          <option value="score">Meilleur score</option>
+          <option value="recent">Plus récentes</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="showInstalled"> Sons déjà installés</label>
+      <label class="check"><input type="checkbox" id="showEmpty"> Sons sans map</label>
+      <label class="check"><input type="checkbox" id="showHidden"> Sons masqués</label>
+      <button id="rescan" class="ghost" title="Relire le dossier BSManager">↻ Rescanner les maps</button>
+    </div>
+
+    <div class="status">
+      <div id="stats">Chargement…</div>
+      <div class="progress"><div id="bar"></div></div>
+    </div>
+  </header>
+
+  <main id="list"></main>
+
+  <audio id="player"></audio>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

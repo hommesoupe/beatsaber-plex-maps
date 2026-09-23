@@ -1,0 +1,128 @@
+:root {
+  --bg: #0b0d14;
+  --panel: #141826;
+  --panel-2: #1b2033;
+  --line: #262c44;
+  --text: #e8ebf5;
+  --muted: #8a91ad;
+  --red: #ff3b5c;
+  --blue: #2fa8ff;
+  --green: #3ddc97;
+  --gold: #ffc53d;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 500px at 10% -10%, #2a0f1f 0%, transparent 60%),
+              radial-gradient(1200px 500px at 90% -10%, #0c2240 0%, transparent 60%),
+              var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font: 14px/1.45 system-ui, "Segoe UI", sans-serif;
+}
+button, select, input { font: inherit; color: inherit; }
+a { color: inherit; }
+
+header {
+  position: sticky; top: 0; z-index: 5;
+  padding: 16px 24px 12px;
+  background: rgba(11, 13, 20, .88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  display: grid; gap: 12px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand h1 { margin: 0; font-size: 20px; letter-spacing: .5px; }
+.brand h1 span { color: var(--muted); font-weight: 400; }
+.saber { width: 6px; height: 26px; border-radius: 3px; }
+.saber.red { background: var(--red); box-shadow: 0 0 12px var(--red); transform: rotate(-15deg); }
+.saber.blue { background: var(--blue); box-shadow: 0 0 12px var(--blue); transform: rotate(15deg); margin-left: -4px; }
+
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs button {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; cursor: pointer;
+}
+.tabs button.active { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue) inset; color: #fff; }
+
+.controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; color: var(--muted); }
+.controls label { display: flex; align-items: center; gap: 6px; }
+.controls select {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 8px;
+}
+.controls .check { cursor: pointer; }
+button.ghost {
+  background: transparent; border: 1px solid var(--line); border-radius: 8px;
+  padding: 4px 10px; cursor: pointer; color: var(--muted);
+}
+button.ghost:hover { color: var(--text); border-color: var(--muted); }
+
+.status { display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+.progress { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+#bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--blue)); transition: width .2s; }
+
+main { padding: 20px 24px 60px; display: grid; gap: 14px; max-width: 1200px; margin: 0 auto; }
+
+.track {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden;
+}
+.track.dim { opacity: .55; }
+.track-head { display: flex; gap: 14px; align-items: center; padding: 12px 14px; }
+.track-head img, .track-head .noimg {
+  width: 56px; height: 56px; border-radius: 8px; object-fit: cover; background: var(--panel-2); flex: none;
+}
+.track-info { flex: 1; min-width: 0; }
+.track-title { font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-artist { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-meta { display: flex; gap: 10px; color: var(--muted); font-size: 12px; margin-top: 2px; flex-wrap: wrap; }
+.stars { color: var(--gold); }
+.pill { font-size: 11px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); }
+.pill.ok { color: var(--green); border-color: color-mix(in srgb, var(--green) 40%, transparent); }
+.pill.none { color: var(--muted); }
+.track-actions { display: flex; gap: 6px; flex: none; }
+
+.maps { border-top: 1px solid var(--line); }
+.map {
+  display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center;
+  padding: 8px 14px; border-top: 1px solid rgba(255,255,255,.03);
+}
+.map:first-child { border-top: 0; }
+.map:hover { background: var(--panel-2); }
+.map img { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; background: var(--panel-2); }
+.map-name { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.map-name small { color: var(--muted); font-weight: 400; }
+.map-meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 12px; align-items: center; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+.score { color: var(--text); font-weight: 600; }
+.badge { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: .4px; }
+.badge.curated { background: #3a2a05; color: var(--gold); }
+.badge.ranked { background: #0b2a44; color: var(--blue); }
+.badge.mod { background: #2a1030; color: #e28cff; }
+.badge.have { background: #0d2e22; color: var(--green); }
+.diffs { display: flex; gap: 3px; }
+.diff { font-size: 10px; font-weight: 700; width: 22px; text-align: center; border-radius: 3px; padding: 1px 0; color: #0b0d14; }
+.d-Easy { background: #3ddc97; } .d-Normal { background: #2fa8ff; } .d-Hard { background: #ff9f43; }
+.d-Expert { background: #ff3b5c; } .d-ExpertPlus { background: #b16cff; }
+
+.map-actions { display: flex; gap: 6px; align-items: center; }
+.btn {
+  border: 1px solid var(--line); background: var(--panel-2); border-radius: 8px;
+  padding: 5px 10px; cursor: pointer; text-decoration: none; font-size: 12px; white-space: nowrap;
+}
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: linear-gradient(90deg, var(--red), var(--blue)); border: 0; color: #fff; font-weight: 600; }
+.btn.playing { border-color: var(--blue); color: var(--blue); }
+.more { padding: 8px 14px; border-top: 1px solid var(--line); }
+.more button { background: none; border: 0; color: var(--blue); cursor: pointer; padding: 0; }
+.loading { padding: 10px 14px; color: var(--muted); border-top: 1px solid var(--line); font-size: 12px; }
+.empty { text-align: center; color: var(--muted); padding: 60px 0; }
+
+@media (max-width: 720px) {
+  header, main { padding-left: 16px; padding-right: 16px; }
+  .map { grid-template-columns: 40px 1fr; }
+  .map-actions { grid-column: 1 / -1; }
+}
