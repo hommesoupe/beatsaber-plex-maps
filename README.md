@@ -33,6 +33,7 @@ BeatSaver results are cached for 3 days in `cache/`. Hidden songs are stored in 
 
 ## Next steps
 
+- [ ] Map recommendations: suggest maps based on the ones you already have (same mappers, similar artists / genres), even for songs not in Plex
 - [ ] Export the top picks as a Beat Saber playlist (`.bplist`) to install everything at once
 - [ ] Artist view: every map from your favorite artists, not only rated tracks
 - [ ] Filter maps by difficulty, duration or BPM
